@@ -1,4 +1,4 @@
-configs
+vimrc
 =======
 
-My .vim config - depends on https://github.com/icetan/configs
+My .vimrc - depends on https://github.com/icetan/vimrc
