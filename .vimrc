@@ -8,6 +8,8 @@ set softtabstop=4
 set tabstop=4
 set number
 
+Bundle 'jade.vim'
+
 execute pathogen#infect()
 
 let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": [] }
