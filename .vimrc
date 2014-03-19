@@ -1,4 +1,4 @@
-source ~/icetan-configs/.vimrc
+source ~/dotfiles/icetan/dotfiles/.vimrc
 let g:solarized_contrast="high"
 let g:solarized_termtrans=1
 syntax enable
@@ -9,6 +9,7 @@ set tabstop=4
 set number
 
 Bundle 'jade.vim'
+Bundle 'phleet/vim-mercenary'
 
 execute pathogen#infect()
 
