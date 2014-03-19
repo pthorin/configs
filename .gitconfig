@@ -3,6 +3,7 @@
 	email = peter.thorin@kartena.se
 [core]
 	excludesfile = 
+    editor = vim
 [diff]
     tool = mvimdiff
 [difftool "mvimdiff"]
