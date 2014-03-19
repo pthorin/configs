@@ -1,0 +1,26 @@
+[user]
+	name = pthorin
+	email = peter.thorin@kartena.se
+[core]
+	excludesfile = 
+[diff]
+    tool = mvimdiff
+[difftool "mvimdiff"]
+    cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+[color]
+	ui = auto
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    glog = log --graph --decorate --branches --all
+    ls = log --branches --all --pretty=format:"%C(auto)%h\\ (%ad)\\ %Cblue<%an>%x09%Creset%s%C(auto)%d" --decorate --date=relative
+    lsg = log --branches --all --pretty=format:"%C(auto)%h\\ (%ad)\\ %Cblue<%an>%x09%Creset%s%C(auto)%d" --decorate --date=relative --graph
+    incoming = "!git remote update -p; git log ..@{u}"
+    outgoing = log @{u}..
+    showtool = "!sh -c 'git difftool "$0~1" "$0"'"
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
