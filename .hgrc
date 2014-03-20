@@ -1,0 +1,13 @@
+[ui]
+username=petert
+editor=vim
+style=default
+
+[extensions]
+graphlog=
+color=
+
+[alias]
+slog=log --style=/Users/petert/mercurial-cli-templates/map-cmdline.slog
+nlog=log --style=/Users/petert/mercurial-cli-templates/map-cmdline.nlog
+sglog=glog --style=/Users/petert/mercurial-cli-templates/map-cmdline.sglog
