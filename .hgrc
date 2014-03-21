@@ -6,8 +6,10 @@ style=default
 [extensions]
 graphlog=
 color=
+prompt=~/utils/hg-prompt/prompt.py
+mq=
 
 [alias]
-slog=log --style=/Users/petert/mercurial-cli-templates/map-cmdline.slog
-nlog=log --style=/Users/petert/mercurial-cli-templates/map-cmdline.nlog
-sglog=glog --style=/Users/petert/mercurial-cli-templates/map-cmdline.sglog
+slog=log --style=/Users/petert/utils/mercurial-cli-templates/map-cmdline.slog
+nlog=log --style=/Users/petert/utils/mercurial-cli-templates/map-cmdline.nlog
+sglog=glog --style=/Users/petert/utils/mercurial-cli-templates/map-cmdline.sglog
