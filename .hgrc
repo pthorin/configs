@@ -8,8 +8,15 @@ graphlog=
 color=
 prompt=~/utils/hg-prompt/prompt.py
 mq=
+pager=
 
 [alias]
 slog=log --style=/Users/petert/utils/mercurial-cli-templates/map-cmdline.slog
 nlog=log --style=/Users/petert/utils/mercurial-cli-templates/map-cmdline.nlog
 sglog=glog --style=/Users/petert/utils/mercurial-cli-templates/map-cmdline.sglog
+stat=diff --stat
+glog=sglog
+
+[pager]
+pager = LESS='FSRX' less
+attend = hlog, slog, nlog, log, glog, sglog

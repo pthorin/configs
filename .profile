@@ -12,7 +12,7 @@ alias unshelvewebconfig='cp ~/vault/localellaconfig/Web.config.local ~/vault/ell
 EDITOR='vim'
 
 alias arcdiff='arc diff --encoding cp-1252'
-alias glog='hg glog --stat |less'
-alias glogstat='hg log --graph --stat |less'
-alias glogstatdiff='hg log --graph --stat --patch |less'
+alias glog='hg glog --stat'
+#alias glogstat='hg log --graph --stat'
+alias glogstatdiff='hg log --graph --stat --patch'
 alias grep='grep --color=auto'
