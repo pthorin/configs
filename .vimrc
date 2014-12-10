@@ -22,3 +22,12 @@ let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_
        \         exe "normal g'\"" |
        \     endif |
        \ endif
+
+nnoremap <leader>m :silent %w !dr-markdown\|xargs open<CR>
+
+if has("gui_running")
+  set guioptions=egmrt                " Hide toolbar in MacVim
+  set guifont=M+_1mn:h14
+endif
+
+
