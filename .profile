@@ -16,3 +16,7 @@ alias glog='hg glog --stat'
 #alias glogstat='hg log --graph --stat'
 alias glogstatdiff='hg log --graph --stat --patch'
 alias grep='grep --color=auto'
+
+if [ -f /usr/local/etc/autojump.bash ]; then
+    . /usr/local/etc/autojump.bash
+fi
