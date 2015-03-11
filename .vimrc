@@ -1,4 +1,5 @@
-source ~/dotfiles/icetan/dotfiles/.vimrc
+source ~/dotfiles/icetan-fork:dotfiles/vim/.vimrc
+
 let g:solarized_contrast="high"
 let g:solarized_termtrans=1
 syntax enable
@@ -6,12 +7,10 @@ set hls ic is
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-set number
+" set number
 
-Bundle 'jade.vim'
-Bundle 'phleet/vim-mercenary'
 
-execute pathogen#infect()
+" execute pathogen#infect()
 
 let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": [] }
 
