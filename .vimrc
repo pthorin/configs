@@ -7,6 +7,7 @@ let g:solarized_termtrans=1
 " Airline Settings
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+let g:airline_theme="molokai"
 
 syntax enable
 set hls ic is
