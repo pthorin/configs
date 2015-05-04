@@ -28,4 +28,7 @@ fi
 
 PS1="$PS1\[\e[0;37m\]\$\[\e[0m\] "
 
+if [ -f /usr/local/Cellar/dnvm/1.0.0-dev/libexec/dnvm.sh ]; then
+    source /usr/local/Cellar/dnvm/1.0.0-dev/libexec/dnvm.sh
+fi
 source ~/.profile
