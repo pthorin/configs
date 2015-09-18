@@ -26,6 +26,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   PS1="$PS1\$(_git_prompt)"
 fi
 
+HGP='`hg prompt "[{branch}{status}{update}]" 2>/dev/null`\[\e[0m\]'
+
+PS1=$PS1$HGP
+
 PS1="$PS1\[\e[0;37m\]\$\[\e[0m\] "
 
-source ~/.profile
+source .profile
