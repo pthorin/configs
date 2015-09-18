@@ -15,6 +15,8 @@ set softtabstop=4
 set tabstop=4
 " set number
 
+" Ctrl P Resharper-like setting thing
+map <C-n> :CtrlPCurWD<CR>
 
 " execute pathogen#infect()
 
@@ -42,8 +44,8 @@ endfu
 
 if has("gui_running")
   set guioptions=egmrt                " Hide toolbar in MacVim
-  " set guifont=M+_1mn:h14
-  set guifont=M+_1m_for_Powerline:h12
+  set guifont=M+_1mn:h14
+  " set guifont=M+_1m_for_Powerline:h12
 endif
 
 
