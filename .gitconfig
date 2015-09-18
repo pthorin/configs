@@ -1,5 +1,5 @@
 [user]
-	name = pthorin
+	name = Peter Thorin
 	email = peter.thorin@kartena.se
 [core]
 	excludesfile = 
@@ -23,5 +23,14 @@
     outgoing = log @{u}..
     showtool = "!sh -c 'git difftool "$0~1" "$0"'"
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
