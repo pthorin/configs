@@ -1,5 +1,13 @@
+export ANDROID_HOME="/Users/petert/Library/Android/sdk"
+export PATH="$PATH:~/phab/arcanist/bin:$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 
-PATH="$PATH:~/phab/arcanist/bin"
+alias ls='ls -G'
+#alias dir='dir --color=auto'
+#alias vdir='vdir --color=auto'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 alias reproj='reproject --crs-defs=/usr/local/lib/node_modules/reproject/crs-defs.json'
 alias wrg='wellknown | reproj --from=EPSG:3006 --to=EPSG:4326 | geojsonio'
