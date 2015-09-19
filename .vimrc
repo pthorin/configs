@@ -1,4 +1,4 @@
-source ~/dotfiles/icetan-fork:dotfiles/vim/.vimrc
+source ~/dotfiles/icetan/dotfiles/vim/.vimrc
 "
 " Solarized settings
 let g:solarized_contrast="high"
