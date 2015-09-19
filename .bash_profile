@@ -1,6 +1,6 @@
 export CLICOLOR=1
 
-PS1="\[\e[0;37m\]\h \[\e[0m\]\w"
+PS1="\[\e[0;37m\]\h \[\e[0m\]\w "
 
 function _git_prompt() {
   local git_status="$(__git_ps1 '%s' | sed 's/\(.*\) /\1/')"
@@ -17,22 +17,32 @@ function _git_prompt() {
   fi
 }
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+## brew section
+if [ `which brew` ]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 
-  export GIT_PS1_SHOWDIRTYSTATE=true
-  export GIT_PS1_SHOWUNTRACKEDFILES=true
+    # dot net on os x
+    if [ -f /usr/local/Cellar/dnvm/1.0.0-dev/libexec/dnvm.sh ]; then
+        source /usr/local/Cellar/dnvm/1.0.0-dev/libexec/dnvm.sh
+    fi
 
-  PS1="$PS1\$(_git_prompt)"
 fi
 
-HGP='`hg prompt "[{branch}{status}{update}]" 2>/dev/null`\[\e[0m\]'
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
 
-PS1=$PS1$HGP
+PS1="$PS1\$(_git_prompt)"
+
+# Requires hg and hg-prompt (https://bitbucket.org/sjl/hg-prompt)
+if [ `which hg` ] && [ -f ~/utils/hg-prompt/prompt.py ]; then
+    HGP='`hg prompt "[{branch}{status}{update}]" 2>/dev/null`\[\e[0m\]'
+
+    PS1=$PS1$HGP
+fi
 
 PS1="$PS1\[\e[0;37m\]\$\[\e[0m\] "
 
-if [ -f /usr/local/Cellar/dnvm/1.0.0-dev/libexec/dnvm.sh ]; then
-    source /usr/local/Cellar/dnvm/1.0.0-dev/libexec/dnvm.sh
-fi
-source ~/.profile
+
+source ~/configs/.profile
