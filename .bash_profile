@@ -1,6 +1,6 @@
 export CLICOLOR=1
 
-PS1="\[\e[0;37m\]\h \[\e[0m\]\w "
+PS1="\[\e[0;37m\]\h \[\e[0m\]\w"
 
 function _git_prompt() {
   local git_status="$(__git_ps1 '%s' | sed 's/\(.*\) /\1/')"
