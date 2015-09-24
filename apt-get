@@ -1,0 +1,13 @@
+sudo apt-get install \
+bcmwl-kernel-source \ #macbookpro
+ubuntu-gnome-desktop \
+powertop \ # powersavings
+curl \
+vim \
+nodejs nodejs-legacy \ #legacy for grunt
+mongodb \ # for swea
+openconnect \ # cisco anyconnect
+git \
+git-flow \
+build-essential openssl-dev \
+
