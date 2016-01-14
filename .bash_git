@@ -1,0 +1,13 @@
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+    source /etc/bash_completion.d/git-prompt
+fi
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+    PS1="$PS1\$(__git_ps1)"
+else
+    PS1="$PS1\$(_git_prompt)"
+fi
+
+
