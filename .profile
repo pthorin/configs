@@ -1,7 +1,7 @@
 export ANDROID_HOME="/Users/petert/Library/Android/sdk"
 export PATH="$PATH:~/phab/arcanist/bin:$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 
-alias ls='ls -G'
+alias ls='ls --color=auto'
 #alias dir='dir --color=auto'
 #alias vdir='vdir --color=auto'
 
@@ -24,7 +24,15 @@ alias glog='hg glog --stat'
 #alias glogstat='hg log --graph --stat'
 alias glogstatdiff='hg log --graph --stat --patch'
 alias grep='grep --color=auto'
+alias solarize=~/dotfiles/gmodarelli/solarize/solarize.sh
+
 
 if [ -f /usr/local/etc/autojump.bash ]; then
     . /usr/local/etc/autojump.bash
 fi
+
+if [ -d "$HOME/node_modules/.bin" ] ; then
+    PATH="$HOME/node_modules/.bin:$PATH"
+fi
+
+PATH="node_modules/.bin:$PATH"

@@ -1,19 +1,29 @@
 source ~/dotfiles/icetan/dotfiles/vim/.vimrc
+
+" editorconfig
+Plug 'editorconfig/editorconfig-vim'
+
 "
 " Solarized settings
 let g:solarized_contrast="high"
 let g:solarized_termtrans=1
 
 " Airline Settings
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline_theme="molokai"
+"let g:airline_powerline_fonts=1
+"let g:airline#extensions#tabline#enabled=1
+"let g:airline_theme="molokai"
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized_dark',
+      \ }
 
 syntax enable
 set hls ic is
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+set expandtab
+set autoindent
 " set number
 
 " Ctrl P Resharper-like setting thing
@@ -45,8 +55,8 @@ endfu
 
 if has("gui_running")
   set guioptions=egmrt                " Hide toolbar in MacVim
-  set guifont=M+_1mn:h14
-  " set guifont=M+_1m_for_Powerline:h12
+  " set guifont=M+_1mn:h14
+  set guifont=M+_1m_for_Powerline:h12
 endif
 
 

@@ -46,3 +46,4 @@ PS1="$PS1\[\e[0;37m\]\$\[\e[0m\] "
 
 
 source ~/configs/.profile
+source ~/dotfiles/bobthecow/git-flow-completion/git-flow-completion.bash

@@ -4,6 +4,7 @@
 [core]
 	excludesfile = 
     editor = vim
+	autocrlf = input
 [diff]
     tool = mvimdiff
 [difftool "mvimdiff"]
@@ -15,6 +16,8 @@
 [color]
 	ui = auto
 [alias]
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+    dlog = log --stat --decorate
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     glog = log --graph --decorate --branches --all
     ls = log --branches --all --pretty=format:"%C(auto)%h\\ (%ad)\\ %Cblue<%an>%x09%Creset%s%C(auto)%d" --decorate --date=relative
