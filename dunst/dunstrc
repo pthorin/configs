@@ -1,3 +1,4 @@
+# Copy or link to .config/dunst/dunstrc
 [global]
     font = Monospace 8
     
