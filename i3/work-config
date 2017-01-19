@@ -111,6 +111,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
+assign [instance="skypeforlinux"] 3:chat
+assign [instance="kartena.slack.com"] 3:chat
+assign [instance="riot.im__app"] 3:chat
+assign [instance="google-chrome"] 1:www
+assign [instance="gnome-terminal-server"] 4:term
+assign [instance="evolution"] 5:mail
+
 # switch to workspace
 bindsym $mod+1 workspace 1:www
 bindsym $mod+2 workspace 2:code
@@ -189,7 +197,7 @@ exec --no-startup-id xinput set-prop "bcm5974" "Synaptics Scrolling Distance" -2
 exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1
 
 # Keybinding for screens
-bindsym Mod4+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1
+bindsym $sup+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -219,3 +227,8 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+# Screenshot 
+bindsym $sup+Shift4 gnome-screenshot -a
+
+
