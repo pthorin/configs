@@ -1,0 +1,24 @@
+echo "Getting and setting up ufw"
+apt-get install ufw
+ufw allow ssh
+ufw allow http
+ufw enable
+
+echo "Shared memory"
+echo "tmpfs /run/shm    tmpfs   defaults,noexec,nosuid  0   0" >> /etc/fstab
+
+apt-get install denyhosts
+
+vim /etc/denyhosts.conf
+
+apt-get install fail2ban
+
+vim /etc/fail2ban/jail.conf
+
+apt-get install chrootkit rkhunter
+
+apt-get install tiger tripwire logwatch libdate-manip-perl 
+
+apt-get install psad
+
+vim /etc/psad/psad.conf
