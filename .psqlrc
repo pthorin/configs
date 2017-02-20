@@ -1,0 +1,13 @@
+\set PROMPT1 '%M:%> %n@%/%R%#%x '
+
+\echo
+\echo Welcome to PostgreSQL
+\echo 
+\echo Aliases:
+\echo 
+\echo :total_db_size - return the total size of disk usage for the current database
+\echo 
+
+\set total_db_size  '(select pg_size_pretty(sum(pg_total_relation_size(c.oid))) as total_bytes from pg_class c);'
+
+\set stats '(select * from pg_stat_activity);'
