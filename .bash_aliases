@@ -5,3 +5,4 @@ alias online='ping -c 3 8.8.8.8'
 alias simple-http-server="python -m SimpleHTTPServer 8000"
 alias dpkg="sudo dpkg"
 alias apt-get="sudo apt-get"
+alias calendar='ncal -3 -M -C'
