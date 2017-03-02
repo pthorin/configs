@@ -10,8 +10,10 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set up screens and DPI
-exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1
-exec --no-startup-id xrandr --dpi 220
+# exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1
+exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1 --output HDMI1 --auto --right-of eDP1
+
+#exec --no-startup-id xrandr --dpi 220
 
 set $mod Mod1
 set $sup Mod4
@@ -196,7 +198,7 @@ bar {
         font pango:DejaVu Sans Mono 8
         status_command i3status
         tray_output primary
-        position top
+        position bottom
 }
 
 # Set background image
@@ -207,7 +209,7 @@ exec --no-startup-id xinput set-prop "bcm5974" "Synaptics Scrolling Distance" -2
 
 
 # Keybinding for screens
-bindsym $sup+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1
+bindsym $sup+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output HDMI2 --auto --left-of eDP1 --output HDMI1 --auto --right-of eDP1
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -244,3 +246,4 @@ bindsym $sup+Shift4 gnome-screenshot -a
 
 # Turn off caps lock
 exec --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+exec --no-startup-id xinput set-prop bcm5974 330 1 # Palm detection
