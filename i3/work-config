@@ -10,7 +10,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set up screens and DPI
-exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output "DP1-1" --auto --left-of eDP1 --output "DP1-2" --auto --right-of eDP1
+exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output "DP1-2" --auto --left-of "DP1-1" --output "DP1-1" --auto --left-of eDP1
+
 
 
 #exec --no-startup-id xrandr --dpi 220
@@ -211,7 +212,7 @@ exec --no-startup-id xinput set-prop "Logitech USB Optical Mouse" "Device Accel 
 
 
 # Keybinding for screens
-bindsym $sup+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output "DP1-1" --auto --left-of eDP1 --output "DP1-2" --auto --right-of eDP1
+bindsym $sup+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output "DP1-2" --auto --left-of "DP1-1" --output "DP1-1" --auto --left-of eDP1
 
 
 # Pulse Audio controls
