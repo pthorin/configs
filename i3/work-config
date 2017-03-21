@@ -9,13 +9,6 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Set up screens and DPI
-exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output "DP1-2" --auto --left-of "DP1-1" --output "DP1-1" --auto --left-of eDP1
-
-
-
-#exec --no-startup-id xrandr --dpi 220
-
 set $mod Mod1
 set $sup Mod4
 
@@ -120,18 +113,18 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 
-assign [window_role="alsamixer"] 10
-assign [instance="skypeforlinux"] 3
-assign [instance="kartena.slack.com"] 3
-assign [instance="riot.im__app"] 3
-assign [instance="google-chrome"] 1
-# assign [instance="gnome-terminal-server"] 4
-assign [instance="evolution"] 5
-assign [instance="spotify"] 10
-assign [title="Oracle VM VirtualBox Manager"] 9
-assign [instance="code" ] 2
-assign [instance="VirtualBox" title="^Windows [.*" ] 2
-assign [class="Wfica_Seamless" ] 7
+#assign [window_role="alsamixer"] 10
+#assign [instance="skypeforlinux"] 3
+#assign [instance="kartena.slack.com"] 3
+#assign [instance="riot.im__app"] 3
+#assign [instance="google-chrome"] 1
+## assign [instance="gnome-terminal-server"] 4
+#assign [instance="evolution"] 5
+#assign [instance="spotify"] 10
+#assign [title="Oracle VM VirtualBox Manager"] 9
+#assign [instance="code" ] 2
+#assign [instance="VirtualBox" title="^Windows [.*" ] 2
+#assign [class="Wfica_Seamless" ] 7
 
 
 # switch to workspace
@@ -202,17 +195,9 @@ bar {
         position bottom
 }
 
-# Set background image
-exec --no-startup-id feh -z --bg-fill Background/
-
-# Set natural scrolling
-#exec --no-startup-id xinput set-prop "bcm5974" "Synaptics Scrolling Distance" -243, -243
-exec --no-startup-id xinput set-prop "DLL07A9:01" "Synaptics Scrolling Distance" -66, -66
-exec --no-startup-id xinput set-prop "Logitech USB Optical Mouse" "Device Accel Constant Deceleration" 0.5
-
 
 # Keybinding for screens
-bindsym $sup+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output "DP1-2" --auto --left-of "DP1-1" --output "DP1-1" --auto --left-of eDP1
+bindsym $sup+p exec --no-startup-id xrandr --output eDP1 --auto --pos 0x0 --output "DP1-1" --auto --left-of "DP2-2" --output "DP2-2" --auto --left-of eDP1
 
 
 # Pulse Audio controls
@@ -234,9 +219,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+m move workspace to output left
 bindsym $mod+shift+m move workspace to output right
 
-# Make it possible to kill annoying windows
-bindsym $mod+Shift+x kill
-
 # Scratchpad 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -244,10 +226,7 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# Screenshot 
-bindsym $sup+Shift4 gnome-screenshot -a
+# Screenshot
+bindsym $sup+Shift+4 "gnome-screenshot -a"
 
-
-# Turn off caps lock
-exec --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-exec --no-startup-id xinput set-prop bcm5974 330 1 # Palm detection
+exec --no-startup-id bash ~/configs/scripts/x-startup.sh
