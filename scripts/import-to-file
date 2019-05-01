@@ -1,0 +1,5 @@
+#!/bin/bash
+if ! [ -d "${HOME}"/Pictures/Screenshots ]; then
+  mkdir -p "${HOME}"/Pictures/Screenshots
+fi
+import png:"${HOME}"/Pictures/Screenshots/"$(date -Iseconds)".png

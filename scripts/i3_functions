@@ -1,0 +1,11 @@
+function start_chats(){
+  i3-msg 'workspace 3; layout default; layout stacked'
+  i3-msg 'exec signal-desktop; exec run_keybase; exec slack ; exec riot-web'
+  gnome-terminal -- tiny-care-terminal
+}
+function quarter() {
+  i3-msg 'move up; focus down'
+  i3-msg 'focus up; move right; focus left; move right' ;
+  i3-msg 'focus up; move right; focus left; move right' ;
+  i3-msg 'layout splitv; focus left; layout splitv'
+}

@@ -1,13 +1,52 @@
-sudo apt-get install \
-bcmwl-kernel-source \ #macbookpro
-ubuntu-gnome-desktop \
-powertop \ # powersavings
-curl \
-vim \
-nodejs nodejs-legacy \ #legacy for grunt
-mongodb \ # for swea
-openconnect \ # cisco anyconnect
-git \
-git-flow \
-build-essential openssl-dev \
+#!/bin/bash
+
+add_ppas () {
+  sudo add-apt-repository ppa:neovim-ppa/stable
+}
+
+install_stuff () {
+  sudo apt-get install -y \
+    powertop \ # powersavings
+    xbacklight \
+    xautolock \
+    compton \
+    fish \
+    i3 \
+    display-dhammapada \
+    curl \
+    ctags \
+    git \
+    neovim \
+    mutt \
+    pandoc \
+    w3m w3m-img \
+    python-dev python-pip python3-dev python3-pip
+}
+
+update_alternatives () {
+  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+  sudo update-alternatives --config vi
+  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+  sudo update-alternatives --config vim
+  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+  sudo update-alternatives --config editor
+}
+
+install_vim_files () {
+  mkdir repos
+  git clone https://github.com/pthorin/vim.git "$HOME"/repos/vim
+  pushd "$HOME/repos/vim" || return
+  if ! [ -d "$HOME/.config/nvim" ]; then mkdir -p "$HOME/.config/nvim" ; fi
+  sh ./install.sh
+  popd
+}
+
+install_configs () {
+  declare configs=(compton dunst fish i3 i3status)
+  for x in ${configs[*]} ; do
+    ln -s "$(pwd)/i3" "$HOME/.config/${x}"
+  done
+}
+
+
 

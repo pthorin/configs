@@ -1,0 +1,4 @@
+#!/bin/bash
+source i3_functions
+
+quarter

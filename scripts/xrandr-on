@@ -1,0 +1,6 @@
+#!/bin/bash
+xrandr --output eDP-1 --auto
+xrandr --output DP-2-1-8 --auto --right-of eDP-1
+xrandr --output DP-1-2 --auto --rotate right --right-of DP-2-1-8
+xrandr --output DP-1-2 --primary
+
