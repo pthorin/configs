@@ -1,0 +1,2 @@
+application/ics;  vcal -all %s ; copiousoutput
+text/calendar; 		vcal -all %s ; copiousoutput
