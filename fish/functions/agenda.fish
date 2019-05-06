@@ -1,4 +1,4 @@
-# Defined in - @ line 0
+# Defined in /tmp/fish.vPOtra/agenda.fish @ line 2
 function agenda --description 'alias agenda=gcalcli agenda'
-	gcalcli agenda $argv;
+	gcalcli --calendar "Peter Thorin"#green --calendar "Gemensam"#green --calendar "SpeedLedger"#default agenda $argv;
 end
