@@ -45,9 +45,12 @@ install_vim_files () {
 install_configs () {
   declare configs=(compton dunst fish i3 i3status)
   for x in ${configs[*]} ; do
-    ln -s "$(pwd)/i3" "$HOME/.config/${x}"
+    ln -s "$(pwd)/$x" "$HOME/.config/${x}"
   done
 }
 
+install_scripts () {
+  ln -s "$(pwd)/scripts" "$HOME/scripts"
+}
 
 
