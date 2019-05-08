@@ -191,16 +191,16 @@ client.background       #ffffff
 new_window none
 
 # Lock screen
-bindsym Ctrl+Mod1+l exec --no-startup-id /home/petert/scripts/fuzz
+bindsym Ctrl+Mod1+l exec --no-startup-id /home/pt/scripts/fuzz
 
 bindsym $mod+Shift+m move workspace to output left
 bindsym $mod+m move workspace to output right
 bindsym Mod1+Shift+l exec --no-startup-id slock
 exec --no-startup-id nm-applet
-exec --no-startup-id /home/petert/.fehbg
-exec --no-startup-id ssh-add /home/petert/.ssh/production.pem
-exec --no-startup-id ssh-add /home/petert/.ssh/test.pem
-exec --no-startup-id xautolock -detectsleep -time 3 -locker "/home/petert/scripts/fuzz"
+exec --no-startup-id /home/pt/.fehbg
+exec --no-startup-id ssh-add /home/pt/.ssh/production.pem
+exec --no-startup-id ssh-add /home/pt/.ssh/test.pem
+exec --no-startup-id xautolock -detectsleep -time 3 -locker "/home/pt/scripts/fuzz"
 exec --no-startup-id transset --name i3bar
 
 # Pulse Audio controls
@@ -217,5 +217,5 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym Shift+Print exec /home/petert/scripts/import-to-clipboard
-bindsym Print exec /home/petert/scripts/import-to-file
+bindsym Shift+Print exec /home/pt/scripts/import-to-clipboard
+bindsym Print exec /home/pt/scripts/import-to-file

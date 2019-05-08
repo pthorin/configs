@@ -2,11 +2,19 @@
 
 add_ppas () {
   sudo add-apt-repository ppa:neovim-ppa/stable
+  echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+
+  # Signal
+  curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+  echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+
+  sudo apt-get update
 }
 
 install_stuff () {
   sudo apt-get install -y \
-    powertop \ # powersavings
+    powertop \
     xbacklight \
     xautolock \
     compton \
@@ -21,7 +29,12 @@ install_stuff () {
     mutt \
     pandoc \
     w3m w3m-img \
-    python-dev python-pip python3-dev python3-pip
+    python-dev python-pip python3-dev python3-pip \
+    openjdk-8-jdk openjdk-8-jre \
+    signal-desktop \
+    maven \
+    xclip \
+    sbt
 }
 
 update_alternatives () {
