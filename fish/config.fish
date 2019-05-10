@@ -39,6 +39,7 @@ if status --is-interactive
   abbr --add gp git push
   abbr --add gpf git pushf
   abbr --add gs git st
+  abbr --add gc git commit
   abbr --add gco git checkout
   abbr --add gcob git cob
   # grep
