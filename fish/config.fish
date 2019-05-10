@@ -31,3 +31,22 @@ set -x TTC_TERMINAL_TITLE false
 set -x TTC_POMODORO 25
 set -x TTC_BREAK 10
 
+# Abbreviations
+if status --is-interactive
+  set -g fish_user_abbreviations
+  # git
+  abbr --add ga git add
+  abbr --add gp git push
+  abbr --add gpf git pushf
+  abbr --add gs git st
+  abbr --add gco git checkout
+  abbr --add gcob git cob
+  # grep
+  abbr --add grep ag
+  # kubectl
+  abbr --add kc 'kubectl'
+  abbr --add kca 'kc apply -f'
+  abbr --add kcp 'kc get pods'
+  abbr --add kcu 'kc config use-context'
+  abbr --add kec 'kc config view --minify=true --flatten --context'
+end
