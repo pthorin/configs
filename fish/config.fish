@@ -35,10 +35,11 @@ set -x TTC_BREAK 10
 if status --is-interactive
   set -g fish_user_abbreviations
   # git
-  abbr --add ga git add
+  abbr --add ga 'git add'
   abbr --add gp git push
   abbr --add gpf git pushf
   abbr --add gs git st
+  abbr --add gl git ls
   abbr --add gc git commit
   abbr --add gco git checkout
   abbr --add gcob git cob
@@ -46,8 +47,8 @@ if status --is-interactive
   abbr --add grep ag
   # kubectl
   abbr --add kc 'kubectl'
-  abbr --add kca 'kc apply -f'
-  abbr --add kcp 'kc get pods'
-  abbr --add kcu 'kc config use-context'
-  abbr --add kec 'kc config view --minify=true --flatten --context'
+  abbr --add kca 'kubectl apply -f'
+  abbr --add kcp 'kubectl get pods'
+  abbr --add kcu 'kubectl config use-context'
+  abbr --add kec 'kubectl config view --minify=true --flatten --context'
 end
