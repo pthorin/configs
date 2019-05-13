@@ -40,7 +40,7 @@ if status --is-interactive
   abbr --add gpf git pushf
   abbr --add gs git st
   abbr --add gl git ls
-  abbr --add gc git commit
+  abbr --add gc 'git commit --interactive -m '
   abbr --add gco git checkout
   abbr --add gcob git cob
   # grep
