@@ -191,17 +191,18 @@ client.background       #ffffff
 new_window none
 
 # Lock screen
-bindsym Ctrl+Mod1+l exec --no-startup-id /home/pt/scripts/fuzz
+bindsym Ctrl+Mod1+l exec --no-startup-id /usr/bin/slock
+#/home/pt/scripts/fuzz
 
 bindsym $mod+Shift+m move workspace to output left
 bindsym $mod+m move workspace to output right
-bindsym Mod1+Shift+l exec --no-startup-id slock
 exec --no-startup-id nm-applet
 exec --no-startup-id /home/pt/.fehbg
 exec --no-startup-id ssh-add /home/pt/.ssh/production.pem
 exec --no-startup-id ssh-add /home/pt/.ssh/test.pem
-exec --no-startup-id xautolock -detectsleep -time 3 -locker "/home/pt/scripts/fuzz"
+exec --no-startup-id xautolock -detectsleep -time 3 -locker slock #"/home/pt/scripts/fuzz"
 exec --no-startup-id transset --name i3bar
+exec --no-startup-id setxkbmap -option caps:escape
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume

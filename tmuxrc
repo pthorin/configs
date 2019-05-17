@@ -1,3 +1,12 @@
 unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
+
+setw -g mouse on
+unbind -T copy-mode-vi Enter
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -selection c"
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R

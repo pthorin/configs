@@ -1,3 +1,15 @@
+# brew 
+set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
+set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
+set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
+set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin" $fish_user_paths;
+set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
+set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
+
+# Hack to make tab complete the automatic suggestion and tab+tab do completion
+bind \t forward-char
+bind \t\t complete
+
 # get all the fishy secrets!
 source ~/.fishy-secrets > /dev/null
 
@@ -12,8 +24,8 @@ if test -d $GOPATH/bin
   set -x PATH $PATH ~/go/bin
 end
 
-if test -d ~/.gem/bin 
-  set -x PATH $PATH ~/.gem/bin
+if test -d ~/.gem/ruby/2.5.0/bin
+  set -x PATH $PATH ~/.gem/ruby/2.5.0/bin
 end
 
 set -x CODE_PATH ~/repos
@@ -38,8 +50,12 @@ if status --is-interactive
   abbr --add ga 'git add'
   abbr --add gp git push
   abbr --add gpf git pushf
+  abbr --add gpu git push -u
+  abbr --add grc git rebase --continue
+  abbr --add gra git rebase --abort
   abbr --add gs git st
   abbr --add gl git ls
+  abbr --add glp git lsp
   abbr --add gc 'git commit --interactive -m '
   abbr --add gco git checkout
   abbr --add gcob git cob
