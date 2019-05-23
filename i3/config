@@ -191,7 +191,7 @@ client.background       #ffffff
 new_window none
 
 # Lock screen
-bindsym Ctrl+Mod1+l exec --no-startup-id /usr/bin/slock
+bindsym Ctrl+Mod1+l exec --no-startup-id i3lock -c 888888 -e
 #/home/pt/scripts/fuzz
 
 bindsym $mod+Shift+m move workspace to output left

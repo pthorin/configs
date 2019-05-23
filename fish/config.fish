@@ -6,9 +6,6 @@ set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxb
 set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
 set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
 
-# Hack to make tab complete the automatic suggestion and tab+tab do completion
-bind \t forward-char
-bind \t\t complete
 
 # get all the fishy secrets!
 source ~/.fishy-secrets > /dev/null
@@ -67,4 +64,12 @@ if status --is-interactive
   abbr --add kcp 'kubectl get pods'
   abbr --add kcu 'kubectl config use-context'
   abbr --add kec 'kubectl config view --minify=true --flatten --context'
+  abbr --add vkcp 'watch -n 1 kubectl get pods'
 end
+
+# lesspipe
+eval (lesspipe)
+
+# Hack to make tab complete the automatic suggestion and tab+tab do completion
+bind \t forward-char
+bind \t\t complete
