@@ -68,17 +68,30 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-git
-httpie
-kube-ps1
-sbt
-)
+plugins=(kube-ps1 zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
+autoload -U compinit && compinit
 
 # User configuration
+export DEFAULT_USER=pt
+prompt_context(){}
 PROMPT=$PROMPT'$(kube_ps1) '
+#
+# Set some paths
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+export PATH=$PATH:~/scripts
+export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/.gem/ruby/2.5.0/bin
+
+if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
+  FPATH=/usr/local/share/zsh/site-functions:$FPATH
+fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -115,13 +128,9 @@ export INFOPATH="/home/linuxbrew/.linuxbrew/share/info":$INFOPATH
 # get all the zecrets!
 source ~/.zecrets > /dev/null
 
-# Set some paths
-export PATH=$PATH:~/scripts
-export PATH=$PATH:~/go/bin
-
-export PATH=$PATH:~/.gem/ruby/2.5.0/bin
 
 export CODE_PATH=~/repos
+export CDPATH=.:~:~/repos
 
 # Tiny Care Terminal
 export TTC_BOTS='honest_update,tinycarebot,selfcare_bot'
@@ -151,7 +160,6 @@ alias glp='git lsp'
 alias gc='git commit --interactive -m '
 alias gco='git checkout'
 alias gcob='git cob'
-alias grep='ag'
 alias kc='kubectl'
 alias kca='kubectl apply -f'
 alias kcp='kubectl get pods'
