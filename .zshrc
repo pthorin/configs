@@ -42,7 +42,7 @@ CASE_SENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -68,7 +68,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(kube-ps1 zsh-completions)
+plugins=(git kube-ps1 zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
@@ -88,9 +88,10 @@ if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
   FPATH=/usr/local/share/zsh/site-functions:$FPATH
 fi
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion" ] && . "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -150,7 +151,9 @@ eval $(lesspipe)
 
 alias ga='git add'
 alias gp='git push'
+alias gpr='git push && hub pull-request --no-edit'
 alias gpf='git pushf'
+alias gup='git up'
 alias gpu='git push -u'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
@@ -166,3 +169,4 @@ alias kcp='kubectl get pods'
 alias kcu='kubectl config use-context'
 alias kec='kubectl config view --minify=true --flatten --context'
 alias vkcp='watch -n 1 kubectl get pods'
+alias agenda='date ; gcalcli --calendar SpeedLedger --calendar Gemensam agenda'
