@@ -1,39 +1,31 @@
 [user]
-	name = Peter Thorin
-	email = peter.thorin@kartena.se
-[core]
-	excludesfile = 
-    editor = vim
-	autocrlf = input
-[diff]
-    tool = mvimdiff
-[difftool "mvimdiff"]
-    cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"[mergetool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
-[push]
-	default = simple
-[color]
-	ui = auto
+  name = Peter Thorin
+	email = peter.thorin@speedledger.se
+  editor = vim
 [alias]
-    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
-    dlog = log --stat --decorate
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-    glog = log --graph --decorate --branches --all
-    ls = log --branches --all --pretty=format:"%C(auto)%h\\ (%ad)\\ %Cblue<%an>%x09%Creset%s%C(auto)%d" --decorate --date=relative
-    lsg = log --branches --all --pretty=format:"%C(auto)%h\\ (%ad)\\ %Cblue<%an>%x09%Creset%s%C(auto)%d" --decorate --date=relative --graph
-    incoming = "!git remote update -p; git log ..@{u}"
-    outgoing = log @{u}..
-    showtool = "!sh -c 'git difftool "$0~1" "$0"'"
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
-[filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+  ls = log --graph --decorate --format=short --all
+  lsp = log --graph --decorate --format=short --all -p
+  st = status --short
+  co = checkout
+  ec = config --global -e
+  up = !git pull --rebase --prune $@
+  cob = checkout -b
+  save = !git add -A && git commit -m 'SAVEPOINT'
+  wip = commit -am "WIP"
+  undo = reset HEAD~1 --mixed
+  amend = commit -a --amend
+  wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	pushf = push origin --force-with-lease
+  bclean = "!f() { git checkout ${1-master} && git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+  bdone = "!f() { git checkout ${2-master} && git up && git bclean ${1-master}; }; f"
+  clean-branches ="!f() { git checkout master && git up && git branch --list |grep -v " master$" | xargs git branch -d; }; f"
+  list = branch --list
+  list-merged = branch --merged
+  need-rebase = "!f() { current=$(git rev-parse --abbrev-ref HEAD); hash1=$(git show-ref --heads -s master); hash2=$(git merge-base ${current} master); PAGER='' git diff --shortstat ${hash1} ${hash2}; test "${hash1}" = "${hash2}" && echo "Nah, we good." && exit 0 || echo "Rebase is required"; exit 1; }; f"
+
+[push]
+	default = current
+[pull]
+	rebase = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
