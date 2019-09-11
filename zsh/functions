@@ -1,0 +1,50 @@
+hub_clone_speedledger () {
+  # clone $1 (repo) to $2 (custom name) or default to repo name
+  hub clone speedledger/$1 ${2-$1}
+}
+wtfrebase () {
+  # TLDR on rebase
+  cat << EOF
+                     A---B---C topic
+                    /
+               D---E---F---G master
+
+       From this point, the result of either of the following commands:
+           git rebase master
+           git rebase master topic
+       would be:
+                             A'--B'--C' topic
+                            /
+               D---E---F---G master
+EOF
+}
+tldrrebase () {
+  wtfrebase
+}
+tldrrebaseonto () {
+  wtfrebaseonto
+}
+wtfrebaseonto () {
+cat << EOF
+                                       H---I---J topicB
+                                      /
+                             E---F---G  topicA
+                            /
+               A---B---C---D  master
+       then the command
+           git rebase --onto master topicA topicB
+       would result in:
+                            H'--I'--J'  topicB
+                           /
+                           | E---F---G  topicA
+                           |/
+               A---B---C---D  master
+EOF
+}
+wtftestonly() {
+  echo 'You need to run sbt "testOnly *ClassSpec" not sbt testOnly "*ClassSpec"'
+}
+lsearch() {
+  lpass show -G ".*$@.*"
+}
+

@@ -1,0 +1,36 @@
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+# git 
+alias ga='git add'
+alias gp='git push'
+alias gpr='hub pull-request --push --no-edit -c'
+alias gpf='git pushf'
+alias gup='git up'
+alias gpu='git push -u'
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
+alias gs='git st'
+alias gl='git ls'
+alias glp='git lsp'
+alias gc='git commit --interactive -m '
+alias gco='git checkout'
+alias gcob='git cob'
+alias hubsl='hub_clone_speedledger'
+alias lg='lazygit'
+# kubectl
+alias kc='kubectl'
+alias kca='kubectl apply -f'
+alias kcp='kubectl get pods'
+alias kcu='kubectl config use-context'
+alias kec='kubectl config view --minify=true --flatten --context'
+alias vkcp='watch -n 1 kubectl get pods'
+alias agenda='date ; gcalcli --calendar SpeedLedger --calendar Gemensam agenda'
+alias cw='circle watch'
+alias i3config='vim .config/i3/config'
+# less is more
+alias less='less -N -i -J'
+alias more='less'
+# docker stuff
+alias gitmoji="docker run --rm -it gitmoji-cli"
+# hello
+alias say="espeak -v sv -s 200"

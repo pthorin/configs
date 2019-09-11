@@ -68,7 +68,13 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kube-ps1 zsh-completions)
+plugins=(
+  git
+  kube-ps1
+  ssh-agent
+  zsh-completions)
+
+zstyle :omz:plugins:ssh-agent identities id_rsa test.pem production.pem
 
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
@@ -92,32 +98,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion" ] && . "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
 export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="$EDITOR ~/.zshrc"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-
 
 export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
@@ -134,7 +115,7 @@ export CODE_PATH=~/repos
 export CDPATH=.:~:~/repos
 
 # Tiny Care Terminal
-export TTC_BOTS='honest_update,tinycarebot,selfcare_bot'
+export TTC_BOTS='honest_update,dmofengineering,selfcare_bot'
 export TTC_SAY_BOX='parrot'
 export TTC_REPOS='/home/pt/repos'
 export TTC_REPOS_DEPTH=2
@@ -148,26 +129,17 @@ export TTC_BREAK=10
 
 
 eval $(lesspipe)
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESS=" -R "
 
-alias ga='git add'
-alias gp='git push'
-alias gpr='git push && hub pull-request --no-edit'
-alias gpf='git pushf'
-alias gup='git up'
-alias gpu='git push -u'
-alias grc='git rebase --continue'
-alias gra='git rebase --abort'
-alias gs='git st'
-alias gl='git ls'
-alias glp='git lsp'
-alias gc='git commit --interactive -m '
-alias gco='git checkout'
-alias gcob='git cob'
-alias kc='kubectl'
-alias kca='kubectl apply -f'
-alias kcp='kubectl get pods'
-alias kcu='kubectl config use-context'
-alias kec='kubectl config view --minify=true --flatten --context'
-alias vkcp='watch -n 1 kubectl get pods'
-alias agenda='date ; gcalcli --calendar SpeedLedger --calendar Gemensam agenda'
-alias lg='lazygit'
+
+# Load aliases
+source ~/repos/dotfiles/zsh/aliases
+# Load functions
+source ~/repos/dotfiles/zsh/functions
+# aws complete
+source /home/pt/.local/bin/aws_zsh_completer.sh
+# spl complete
+source <(spl completion zsh)
+
+unsetopt auto_cd
