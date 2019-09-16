@@ -18,10 +18,12 @@
 	pushf = push origin --force-with-lease
   bclean = "!f() { git checkout ${1-master} && git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
   bdone = "!f() { git checkout ${2-master} && git up && git bclean ${1-master}; }; f"
+  # rebdone = "!f() { git checkout master && git up && git checkout $1 && git rebase master && if [ $(git need-rebase) -eq 1 ]; then git rebase master ; fi && git bdone }; f"
   clean-branches ="!f() { git checkout master && git up && git branch --list |grep -v " master$" | xargs git branch -d; }; f"
   list = branch --list
   list-merged = branch --merged
   need-rebase = "!f() { current=$(git rev-parse --abbrev-ref HEAD); hash1=$(git show-ref --heads -s master); hash2=$(git merge-base ${current} master); PAGER='' git diff --shortstat ${hash1} ${hash2}; test "${hash1}" = "${hash2}" && echo "Nah, we good." && exit 0 || echo "Rebase is required"; exit 1; }; f"
+  copy-hash = "!git log -n1 --format='%H' |xclip -in -selection clipboard"
 
 [push]
 	default = current
@@ -29,3 +31,8 @@
 	rebase = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[hooks "confirm"]
+	match = TODO
+	match = HACK
+	match = FIXME
+	match = //
