@@ -197,6 +197,8 @@ bindsym Ctrl+Mod1+l exec --no-startup-id /home/pt/scripts/fuzz
 
 bindsym $mod+Shift+m move workspace to output left
 bindsym $mod+m move workspace to output right
+bindsym $mod+Ctrl+m move workspace to output up
+bindsym $mod+Shift+Ctrl+m move workspace to output down
 exec --no-startup-id nm-applet
 exec --no-startup-id /home/pt/.fehbg
 exec --no-startup-id ssh-add /home/pt/.ssh/production.pem
