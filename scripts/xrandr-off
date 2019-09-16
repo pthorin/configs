@@ -1,7 +1,4 @@
 #!/bin/bash
 xrandr --output eDP-1 --auto --primary
-xrandr --output DP-1-1-8 --off
-xrandr --output DP-2-2 --off
-xrandr --output DP-2-1-8 --off
-xrandr --output DP-1-2 --off
+for x in $(xrandr |grep -E '^DP' |cut -d' ' -f1) ; do xrandr --output $x --off ; done
 "$HOME/.fehbg"
