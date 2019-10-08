@@ -1,0 +1,2 @@
+#!/bin/bash
+f() { current=$(git rev-parse --abbrev-ref HEAD); hash1=$(git show-ref --heads -s master); hash2=$(git merge-base ${current} master); PAGER='' git diff --shortstat ${hash1} ${hash2}; test "${hash1}" = "${hash2}" && echo "OK" || echo "Rebase is required"; }; f

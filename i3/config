@@ -203,7 +203,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /home/pt/.fehbg
 exec --no-startup-id ssh-add /home/pt/.ssh/production.pem
 exec --no-startup-id ssh-add /home/pt/.ssh/test.pem
-#exec --no-startup-id xautolock -detectsleep -time 3 -locker "/home/pt/scripts/fuzz"
+exec --no-startup-id xautolock -detectsleep -time 3 -locker "/home/pt/scripts/fuzz"
 exec --no-startup-id transset --name i3bar
 exec --no-startup-id setxkbmap -option caps:escape
 

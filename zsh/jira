@@ -1,0 +1,3 @@
+jiracookie() {
+  jira issue jql "'Assigned team' = Cookie AND project != SF AND (statusCategory in ('To Do', 'In Progress') AND status not in ('Backlog', 'Inbox', 'Grooming', 'Selected for Development') AND createdDate >= -365d OR statusCategory = Done AND resolutiondate >= -7d) ORDER BY statusCategory ASC"
+}

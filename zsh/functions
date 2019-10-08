@@ -44,7 +44,23 @@ EOF
 wtftestonly() {
   echo 'You need to run sbt "testOnly *ClassSpec" not sbt testOnly "*ClassSpec"'
 }
+wtfpgcsv() {
+cat << EOF
+  psql>\f ';'
+  psql>\a
+  psql>\o '/tmp/output.csv'
+  psql>SELECT * from users;
+  psql>\q
+----------- 
+  pgcli>\T csv
+  pgcli>\o '/tmp/output.csv'
+  pgcli>SELECT * from users;
+EOF
+
+}
 lsearch() {
   lpass show -G ".*$@.*"
 }
-
+reminder() {
+  clear ; echo "\n\n\n\n\n" ; figlet -c -f slant "$@" -k -t ; echo "\n\n\n\n\n\n"
+}

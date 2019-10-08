@@ -34,4 +34,6 @@ alias more='less'
 # docker stuff
 alias gitmoji="docker run --rm -it gitmoji-cli"
 # hello
-alias say="espeak -v sv -s 200"
+alias say='espeak -v sv -s 200'
+# gcalcli
+alias week='gcalcli --calendar Gemensam --calendar SpeedLedger calw 1'

@@ -129,7 +129,7 @@ export TTC_BREAK=10
 
 
 eval $(lesspipe)
-export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+#export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 
 
@@ -137,6 +137,8 @@ export LESS=" -R "
 source ~/repos/dotfiles/zsh/aliases
 # Load functions
 source ~/repos/dotfiles/zsh/functions
+# Load jira functions
+source ~/repos/dotfiles/zsh/jira
 # aws complete
 source /home/pt/.local/bin/aws_zsh_completer.sh
 # spl complete
