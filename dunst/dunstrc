@@ -14,7 +14,7 @@
 # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
 # If markup is not allowed, those tags will be stripped out of the
 # message.
-    allow_markup = yes
+    markup = yes
 
 # The format of the message.  Possible variables are:
 #   %a  appname
@@ -34,7 +34,7 @@
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
 # The frequency with wich text that is longer than the notification
 # window allows bounces back and forth.
@@ -67,7 +67,7 @@
 # the top and down respectevly.
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-50-50"
+    geometry = "-1x5-0-0"
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
