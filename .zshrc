@@ -115,7 +115,7 @@ export CODE_PATH=~/repos
 export CDPATH=.:~:~/repos
 
 # Tiny Care Terminal
-export TTC_BOTS='honest_update,dmofengineering,selfcare_bot'
+#export TTC_BOTS='honest_update,dmofengineering,selfcare_bot'
 export TTC_SAY_BOX='parrot'
 export TTC_REPOS='/home/pt/repos'
 export TTC_REPOS_DEPTH=2
@@ -143,5 +143,7 @@ source ~/repos/dotfiles/zsh/jira
 source /home/pt/.local/bin/aws_zsh_completer.sh
 # spl complete
 source <(spl completion zsh)
+# stern complete
+source <(stern --completion zsh)
 
 unsetopt auto_cd

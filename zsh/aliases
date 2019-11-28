@@ -2,6 +2,9 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 # git 
 alias ga='git add'
+alias amend='git commit --amend'
+alias gamend='git commit --amend'
+alias gam='git commit --amend'
 alias gp='git push'
 alias gpr='hub pull-request --push --no-edit -c'
 alias gpf='git pushf'
@@ -25,6 +28,7 @@ alias kcu='kubectl config use-context'
 alias kec='kubectl config view --minify=true --flatten --context'
 alias vkcp='watch -n 1 kubectl get pods'
 alias agenda='date ; gcalcli --calendar SpeedLedger --calendar Gemensam agenda'
+
 alias cw='circle watch'
 alias i3config='vim ~/.config/i3/config'
 alias editaliases='vim ~/repos/dotfiles/zsh/aliases'
@@ -37,3 +41,9 @@ alias gitmoji="docker run --rm -it gitmoji-cli"
 alias say='espeak -v sv -s 200'
 # gcalcli
 alias week='gcalcli --calendar Gemensam --calendar SpeedLedger calw 1'
+alias gitvim="vim -c 'Gstatus |wincmd o' ."
+# copy paste
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+# hub
+alias hi='hub issue'

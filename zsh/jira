@@ -19,3 +19,10 @@ readyforreview() {
 readyfortest() {
   jira issue trans $1 'Ready for test'
 }
+
+jiraepic() {
+  jira issue jql "'Epic link' = $1 OR issue = $1 order by issueType asc"
+}
+alias takeissue='startissue'
+alias ji='jira issue'
+alias je='jiraepic'

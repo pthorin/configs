@@ -5,6 +5,8 @@ revert() {
 trap revert HUP INT TERM
 import -window root /tmp/locking_screen.png
 convert -blur 0x8 /tmp/locking_screen.png /tmp/screen_blur.png
-convert -composite /tmp/screen_blur.png ~/Pictures/ah-ah-ah.png -gravity Center -geometry -0x400 /tmp/screen.png
+#convert -composite /tmp/screen_blur.png ~/Pictures/guldhedsparken.jpg /tmp/screen.png
+rm /tmp/locking_screen.png
+cp /tmp/screen_blur.png /tmp/screen.png
 i3lock -i /tmp/screen.png
 revert

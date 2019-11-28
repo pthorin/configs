@@ -64,3 +64,6 @@ lsearch() {
 reminder() {
   clear ; echo "\n\n\n\n\n" ; figlet -c -f slant "$@" -k -t ; echo "\n\n\n\n\n\n"
 }
+convertvnfxlsx() {
+  xlsx2csv -d';' $1 | sed 's/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;//' > $1.csv
+}

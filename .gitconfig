@@ -4,7 +4,9 @@
   editor = vim
 [alias]
   ls = log --graph --decorate --format=short --all
+  lsg = log --graph --decorate --all
   lsp = log --graph --decorate --format=short --all -p
+  last = log -1
   st = status --short
   co = checkout
   ec = config --global -e
@@ -26,6 +28,7 @@
   need-rebase = "!f() { current=$(git rev-parse --abbrev-ref HEAD); hash1=$(git show-ref --heads -s master); hash2=$(git merge-base ${current} master); PAGER='' git diff --shortstat ${hash1} ${hash2}; test "${hash1}" = "${hash2}" && echo "Nah, we good." && exit 0 || echo "Rebase is required"; exit 1; }; f"
   copy-hash = "!git log -n1 --format='%H' |xclip -in -selection clipboard"
   changes-to-master = "diff --name-only master"
+  praise = "blame"
 
 [push]
 	default = current
@@ -38,3 +41,5 @@
 	match = HACK
 	match = FIXME
 	match = ^//
+[commit]
+	verbose = true
