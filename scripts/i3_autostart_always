@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+xset s off &
+xset -dpms &
+xmodmaprc /home/pt/.xmodmaprc &
+deadd_notification_center &

@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+compton --config /home/pt/.config/compton/compton.conf -b &
+transset --name i3bar &
+/home/pt/.fehbg &
+nm-applet &
+ssh-add /home/pt/.ssh/production.pem &
+ssh-add /home/pt/.ssh/test.pem &
+ssh-add /home/pt/.ssh/filetransfer.pem &
+setxkbmap -option caps:escape &
+slack &
+/home/pt/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox &
