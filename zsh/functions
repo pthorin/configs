@@ -67,3 +67,6 @@ reminder() {
 convertvnfxlsx() {
   xlsx2csv -d';' $1 | sed 's/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;//' > $1.csv
 }
+vimfind(){
+  vim -c ":find $1"
+}
