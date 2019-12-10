@@ -12,7 +12,6 @@
 set $mod Mod4
 set $alt Mod1
 
-exec --no-startup-id compton --config /home/pt/.config/compton/compton.conf -b
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -168,6 +167,7 @@ bindsym $mod+r mode "resize"
 bar {
   position top
   tray_output primary
+  bindsym button3 exec --no-startup-id import /tmp/latest-screenshot.png
   status_command i3status
   colors {
     background #000000
@@ -203,14 +203,6 @@ bindsym $mod+Shift+m move workspace to output left
 bindsym $mod+m move workspace to output right
 bindsym $mod+Ctrl+m move workspace to output up
 bindsym $mod+Shift+Ctrl+m move workspace to output down
-exec --no-startup-id nm-applet
-exec --no-startup-id /home/pt/.fehbg
-exec --no-startup-id ssh-add /home/pt/.ssh/production.pem
-exec --no-startup-id ssh-add /home/pt/.ssh/test.pem
-exec --no-startup-id ssh-add /home/pt/.ssh/filetransfer.pem
-#exec --no-startup-id xautolock -detectsleep -time 3 -locker "/home/pt/scripts/fuzz"
-exec --no-startup-id transset --name i3bar
-exec --no-startup-id setxkbmap -option caps:escape
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -228,14 +220,23 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym --release Shift+Print exec --no-startup-id /home/pt/scripts/import-to-clipboard
 bindsym --release Print exec --no-startup-id /home/pt/scripts/import-to-file
+
 exec xmodmap /home/pt/.xmodmaprc
 exec --no-startup-id workrave
+
+# Scratchpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+comma [title="^Spotify"] scratchpad show
+bindsym $mod+period [title="^Slack"] scratchpad show
+bindsym $mod+o [title="^Signal"] scratchpad show
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
 
 # Cycle windows
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
-exec_always xset s off
-exec_always xset -dpms
-exec_always deadd_notification_center
-exec slack
-exec /home/pt/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox
+
+exec_always --no-startup-id /home/pt/scripts/i3_autostart_always
+exec --no-startup-id /home/pt/scripts/i3_autostart
