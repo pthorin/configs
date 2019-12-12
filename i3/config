@@ -195,6 +195,7 @@ client.background       #ffffff
 
 # No borders
 new_window none
+new_float normal
 
 # Lock screen
 bindsym Ctrl+Mod1+l exec --no-startup-id /home/pt/scripts/fuzz
@@ -218,8 +219,8 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-bindsym --release Shift+Print exec --no-startup-id /home/pt/scripts/import-to-clipboard
-bindsym --release Print exec --no-startup-id /home/pt/scripts/import-to-file
+bindsym --release Print exec --no-startup-id /home/pt/scripts/import-to-clipboard
+bindsym --release Shift+Print exec --no-startup-id /home/pt/scripts/import-to-file
 
 exec xmodmap /home/pt/.xmodmaprc
 exec --no-startup-id workrave
@@ -227,9 +228,10 @@ exec --no-startup-id workrave
 # Scratchpad
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+comma [title="^Spotify"] scratchpad show
-bindsym $mod+period [title="^Slack"] scratchpad show
-bindsym $mod+o [title="^Signal"] scratchpad show
+bindsym $mod+. [title="^Spotify"] scratchpad show
+bindsym $mod+comma [title="^Slack"] scratchpad show
+bindsym $mod+i [title="^Signal"] scratchpad show
+bindsym $mod+b [title="^Keybase"] scratchpad show
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
