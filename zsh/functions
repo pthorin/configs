@@ -67,6 +67,17 @@ reminder() {
 convertvnfxlsx() {
   xlsx2csv -d';' $1 | sed 's/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;//' > $1.csv
 }
+### vim 
 vimfind(){
   vim -c ":find $1"
 }
+plainvim() {
+  vim -u NONE $@
+}
+
+
+browsh() {
+  docker run --rm -it -v $HOME/.config/browsh/config.toml:/app/.config/browsh/config.toml browsh/browsh
+}
+
+

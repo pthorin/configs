@@ -89,6 +89,7 @@ export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:~/scripts
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/.gem/ruby/2.5.0/bin
+export PATH=$PATH:./node_modules/.bin
 
 if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
   FPATH=/usr/local/share/zsh/site-functions:$FPATH
