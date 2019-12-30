@@ -228,12 +228,12 @@ exec --no-startup-id workrave
 # Scratchpad
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
-for_window [title="^Spotify"] move scratchpad
+for_window [title="^Spotify"] mark "music", move scratchpad
 for_window [title="^Slack"] move scratchpad
 for_window [title="^Signal"] move scratchpad
 for_window [title="^Keybase"] move scratchpad
 for_window [title="^Riot"] move scratchpad
-bindsym $mod+comma [title="^Spotify"] scratchpad show
+bindsym $mod+comma [con_mark="music"] scratchpad show
 bindsym $mod+period [title="^Slack"] scratchpad show
 bindsym $mod+i [title="^Signal"] scratchpad show
 bindsym $mod+b [title="^Keybase"] scratchpad show
