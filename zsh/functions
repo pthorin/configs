@@ -74,11 +74,11 @@ tmuxcheatsheet() {
   # TLDR on tmux
   cat << EOF
     "change new pane directory: <prefix>+: attach -c CWD"
-  EOF
+EOF
 }
 alias wtftmux='tmuxcheatsheet'
 
-### vim 
+### vim
 vimfind(){
   vim -c ":find $1"
 }
