@@ -67,6 +67,17 @@ reminder() {
 convertvnfxlsx() {
   xlsx2csv -d';' $1 | sed 's/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;//' > $1.csv
 }
+
+### tmux
+
+tmuxcheatsheet() {
+  # TLDR on tmux
+  cat << EOF
+    "change new pane directory: <prefix>+: attach -c CWD"
+  EOF
+}
+alias wtftmux='tmuxcheatsheet'
+
 ### vim 
 vimfind(){
   vim -c ":find $1"
