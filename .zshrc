@@ -117,7 +117,7 @@ export CDPATH=.:~:~/repos
 
 # Tiny Care Terminal
 #export TTC_BOTS='honest_update,dmofengineering,selfcare_bot'
-export TTC_SAY_BOX='parrot'
+export TTC_SAY_BOX='/home/pt/repos/dotfiles/nyan.ansi'
 export TTC_REPOS='/home/pt/repos'
 export TTC_REPOS_DEPTH=2
 export TTC_WEATHER='Gothenburg'
